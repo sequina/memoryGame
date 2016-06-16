@@ -2,12 +2,31 @@
 <html>
 <head>
   <title>Memory Game</title>
+<meta name="google-signin-client_id" content="344924208843-lr7f74mh6q2j9sn3kadb5i93m6ne6pnd.apps.googleusercontent.com">
 </head>
-<body ng-app = "MemoryGame">
+<link rel="stylesheet" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 
-<div ng-include = "partials/navBar.html"></div>
+<body ng-app="MemoryGame">
+
+<div ng-view></div>
+
+
+
+
+
+
+
+<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+<script type="text/javascript" src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src= "lib/node_modules/angularfire/dist/angularfire.min.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/factories/authFactory.js"></script>
 <script type="text/javascript" src="app/controllers/LoginCtrl.js"></script>
 <script type="text/javascript" src="app/controllers/DashboardCtrl.js"></script>
-<script type="text/javascript" src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 </body>
 </html>
