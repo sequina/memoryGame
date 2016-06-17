@@ -1,9 +1,18 @@
 
 <body>
 <!-- <div class="container"> -->
-  <h1>Welcome {{googleAcct.displayName}}</h1>
+  <h1>Welcome {{loggedInUserDisplayName}}</h1>
   <div id ="card"class="col-xs-6 col-md-4"></div>
   <div class="col-xs-6 col-md-4">card2</div>
   <div class="col-xs-6 col-md-4">card3</div>
 <!-- </div> -->
+
+  <p ng-bind="counter"></p>
+    <button ng-click="start()">Start</button>
+
+
+
+
+
+
 </body>

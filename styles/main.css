@@ -1,3 +1,6 @@
 #card{
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/59627/square_card_back.jpg");
+    background-image: url("/data/square_card_back.jpg");
+    display: block;
+    height: 20%;
+    width: 20%;
 }
