@@ -1,6 +1,7 @@
 "use strict";
 
-app.controller("LoginCtrl", function($scope, $location, firebaseURL, authFactory) {
+app.controller("LoginCtrl", function($scope, $rootScope,$location, firebaseURL, authFactory) {
+
   let ref = new Firebase(firebaseURL);
 
   if($location.path() === "/logout") {
@@ -11,8 +12,8 @@ $scope.login = () => {
     console.log("you clicked login" );
     authFactory
       .Googlelogin($scope.account)
-      .then(() => {
-        // $scope.hasUser = true;
+      .then((googleAcct) => {
+        $rootScope.loggedInUserDisplayName = googleAcct.displayName;
         $location.path("/login");
         $scope.$apply();
       });

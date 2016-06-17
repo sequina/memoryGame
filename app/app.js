@@ -11,7 +11,11 @@ app.config(function($routeProvider) {
     templateUrl:'partials/dashboard.html',
     controller:"DashboardCtrl",
     // resolve: {isAuth},
-    }).
+  }).
+  when('/profile',{
+    templateUrl:'partials/userProfile.html',
+    // controller:"ProfileCtrl",
+  }).
   otherwise('/')
   }
 );
