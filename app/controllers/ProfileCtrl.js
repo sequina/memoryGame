@@ -1,6 +1,6 @@
-app.controller("ProfileCtrl", function($scope, $rootScope, $location, $timeout,firebaseURL) {
+app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL) {
 
-  $scope.cards = [{id: "card1"}, {id: "card2"}, {id: "card3"}, {id: "card4"}, {id: "card5"}, {id: "card6"}];
+  $scope.cards = [{id: "card1"}, {id: "card2"}, {id: "card3",isFlipped:false}, {id: "card4"}, {id: "card5"}, {id: "card6"}];
 
 
   $rootScope.loggedInUserDisplayName = "";

@@ -8,3 +8,7 @@
 .card-container{
   height: 320px;
 }
+
+.flipped{
+  background-image: url("/data/Emoji-Glasses.jpg");
+}

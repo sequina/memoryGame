@@ -1,8 +1,9 @@
 <h1>Welcome, {{username}}</h1>
 
 <div class="container">
-  <div id="{{card.id}}" class="col-xs-6 col-md-4 card-container" ng-repeat="card in cards">
-    <div class="col-xs-12 card"></div>
+    <div id="{{card.id}}" class="col-xs-6 col-md-4 card-container" ng-repeat="card in cards">
+
+      <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}" ng-click="card.isFlipped=!card.isFlipped"></div>
   </div>
 </div>
 
