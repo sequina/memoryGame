@@ -1,20 +1,32 @@
 var app = angular.module("MemoryGame", ["ngRoute"])
   .constant("firebaseURL", "https://memapp.firebaseio.com/");
 
+let isAuth = (authFactory) => new Promise((resolve, reject) => {
+  if(authFactory.isAuthenticated()) {
+    console.log("User is authenticated, resolve route promise");
+    resolve();
+  } else {
+    console.log("User is not authenticated, reject route promise");
+    reject();
+  }
+})
+
+
 app.config(function($routeProvider) {
   $routeProvider.
   when('/login',{
     templateUrl:'partials/login.html',
     controller:"LoginCtrl",
   }).
+  when('/profile',{
+    templateUrl:'partials/userProfile.html',
+    controller:"ProfileCtrl",
+    resolve: {isAuth},
+  }).
   when('/myGames',{
     templateUrl:'partials/dashboard.html',
     controller:"DashboardCtrl",
-    // resolve: {isAuth},
-  }).
-  when('/profile',{
-    templateUrl:'partials/userProfile.html',
-    // controller:"ProfileCtrl",
+    resolve: {isAuth},
   }).
   otherwise('/')
   }

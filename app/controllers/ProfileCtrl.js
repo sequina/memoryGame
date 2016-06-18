@@ -1,15 +1,19 @@
-app.controller("ProfileCtrl", function($scope, $location, $timeout,firebaseURL) {
-console.log("profile ctrl is here");
+app.controller("ProfileCtrl", function($scope, $rootScope, $location, $timeout,firebaseURL) {
 
-$scope.counter=30;
-var stop;
+  $scope.cards = [{id: "card1"}, {id: "card2"}, {id: "card3"}, {id: "card4"}, {id: "card5"}, {id: "card6"}];
 
-$scope.start = function(){
-  stop=$timeout(function() {
-    console.log($scope.counter);
 
-  })
-}
+  $rootScope.loggedInUserDisplayName = "";
+    console.log("rootScope validated");
+
+// $scope.counter=30;
+// var stop;
+
+// $scope.start = function(){
+//   stop=$timeout(function() {
+//     console.log($scope.counter);
+//   })
+// };
 
 
 

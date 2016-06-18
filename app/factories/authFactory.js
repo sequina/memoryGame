@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("authFactory", function(firebaseURL) {
+app.factory("authFactory", function(firebaseURL,$rootScope) {
   let ref = new Firebase(firebaseURL);
   let currentUserData = null;
 
@@ -21,18 +21,19 @@ app.factory("authFactory", function(firebaseURL) {
 
 //Authenticate the client via Firebase
 
-Googlelogin(){
-  console.log('you are inside the google login function in authfactory')
-  return new Promise((resolve, reject) => {
-    ref.authWithOAuthPopup("google", function(error, authData) {
-      if (error) {
-      console.log("Login Failed!", error);
-      }else{
-      console.log("Authenticated successfully with payload:", authData);
-      }
-    })
-  })
-},
+    Googlelogin(){
+      return new Promise((resolve, reject) => {
+        ref.authWithOAuthPopup("google", function(error, authData) {
+          if (error) {
+          console.log("Login Failed!", error);
+          }else{
+          console.log("Authenticated successfully with payload:",
+           authData);
+          $rootScope.username = authData.google.displayName;
+          }
+        })
+      })
+    },
 
   //Store each Firebase user's id in the `users` collection
 

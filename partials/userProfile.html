@@ -1,18 +1,10 @@
+<h1>Welcome, {{username}}</h1>
 
-<body>
-<!-- <div class="container"> -->
-  <h1>Welcome {{loggedInUserDisplayName}}</h1>
-  <div id ="card"class="col-xs-6 col-md-4"></div>
-  <div class="col-xs-6 col-md-4">card2</div>
-  <div class="col-xs-6 col-md-4">card3</div>
-<!-- </div> -->
+<div class="container">
+  <div id="{{card.id}}" class="col-xs-6 col-md-4 card-container" ng-repeat="card in cards">
+    <div class="col-xs-12 card"></div>
+  </div>
+</div>
 
-  <p ng-bind="counter"></p>
-    <button ng-click="start()">Start</button>
-
-
-
-
-
-
-</body>
+  <!-- <p ng-bind="counter"></p>
+    <button ng-click="start()">Start</button> -->
