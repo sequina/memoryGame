@@ -14,6 +14,11 @@ let isAuth = (authFactory) => new Promise((resolve, reject) => {
 
 app.config(function($routeProvider) {
   $routeProvider.
+  when('/#', {
+    templateUrl:'partials/userProfile.html',
+    controller: "ProfileCtrl",
+    resolve: {isAuth},
+  }).
   when('/login',{
     templateUrl:'partials/login.html',
     controller:"LoginCtrl",
@@ -26,11 +31,10 @@ app.config(function($routeProvider) {
   when('/myGames',{
     templateUrl:'partials/dashboard.html',
     controller:"DashboardCtrl",
-    resolve: {isAuth},
+    resolve: {isAuth}
   }).
   otherwise('/')
-  }
-);
+});
 
 app.run(($location) => {
   let contactRef = new Firebase("https://memapp.firebaseio.com/");

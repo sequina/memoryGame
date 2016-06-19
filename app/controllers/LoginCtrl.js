@@ -3,7 +3,7 @@ app.controller("LoginCtrl", function($scope, $rootScope,$location, firebaseURL, 
 
   let ref = new Firebase(firebaseURL);
 
-  if($location.path() === "/logout") {
+  if($location.path() === "/login") {
     ref.unauth();
   }
 
@@ -11,6 +11,7 @@ $scope.login = () => {
     console.log("you clicked login" );
     authFactory
       .Googlelogin($scope.account)
-        console.log("Googlelogin works .then is nxt");
+        console.log("Googlelogin works");
     };
+        $location.path("/login");
 });

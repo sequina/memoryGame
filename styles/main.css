@@ -10,5 +10,13 @@
 }
 
 .flipped{
-  background-image: url("/data/Emoji-Glasses.jpg");
+  background-image: url("/data/Emoji-Nerd.png");
+}
+
+.flipped2{
+  background-image: url("/data/Emoji-facePlant.png");
+}
+
+.flipped3{
+  background-image: url("/data/Emoji-Poop.png");
 }
