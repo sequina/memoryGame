@@ -1,0 +1,22 @@
+.card{
+    background-image: url("/data/square_card_back.jpg");
+    height: 312px;
+    width: 300px;
+}
+
+
+.card-container{
+  height: 320px;
+}
+
+.flipped{
+  background-image: url("/data/Emoji-Nerd.png");
+}
+
+.flipped2{
+  background-image: url("/data/Emoji-facePlant.png");
+}
+
+.flipped3{
+  background-image: url("/data/Emoji-Poop.png");
+}

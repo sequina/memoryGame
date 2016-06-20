@@ -1,0 +1,16 @@
+<h1>Welcome, {{username}}</h1>
+
+<div class="container">
+    <div id="{{card.id}}" class="col-xs-6 col-md-4 card-container" ng-repeat="card in cards">
+
+      <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}" ng-click="card.isFlipped=!card.isFlipped"></div>
+
+      <!-- <div class="col-xs-12 card" ng-class="{'flipped2':card.isFlipped2}" ng-click="card.isFlipped2=!card.isFlipped2"></div> -->
+
+      <div class="col-xs-12 card" ng-class="{'flipped3':card.isFlipped3}" ng-click="card.isFlipped3=!card.isFlipped3"></div>
+
+  </div>
+</div>
+
+  <!-- <p ng-bind="counter"></p>
+    <button ng-click="start()">Start</button> -->
