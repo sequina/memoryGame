@@ -14,7 +14,7 @@ let isAuth = (authFactory) => new Promise((resolve, reject) => {
 
 app.config(function($routeProvider) {
   $routeProvider.
-  when('/#', {
+  when('/', {
     templateUrl:'partials/userProfile.html',
     controller: "ProfileCtrl",
     resolve: {isAuth},

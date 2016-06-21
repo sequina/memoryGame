@@ -6,6 +6,14 @@ app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,fi
   $rootScope.loggedInUserDisplayName = "";
     console.log("rootScope validated");
 
+//ng-show and hide for matches
+// if (isFlipped===isflipped) {
+//   }else{
+
+// }
+
+
+
 // $scope.counter=30;
 // var stop;
 
