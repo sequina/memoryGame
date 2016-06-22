@@ -13,7 +13,7 @@ app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,fi
 // }
 
 
-
+//ng timer-clock
 // $scope.counter=30;
 // var stop;
 

@@ -11,8 +11,10 @@ $scope.login = () => {
     console.log("you clicked login" );
     authFactory
       .Googlelogin($scope.account)
+      .then(function(stuff) {
+        console.log("stuff", stuff);
         console.log("Googlelogin works");
-        $location.path("/");
-        // $scope.$apply();
+        $location.path("/cow");
+      })
     };
 });

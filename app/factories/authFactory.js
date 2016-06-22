@@ -26,10 +26,12 @@ app.factory("authFactory", function(firebaseURL,$rootScope) {
         ref.authWithOAuthPopup("google", function(error, authData) {
           if (error) {
           console.log("Login Failed!", error);
+          reject();
           }else{
           console.log("Authenticated successfully with payload:",
            authData);
           $rootScope.username = authData.google.displayName;
+          resolve(authData);
           }
         })
       })
