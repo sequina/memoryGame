@@ -1,7 +1,7 @@
 app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL) {
 
-  $scope.cards = [{id: "card1",isFlipped3:false}, {id: "card2"}, {id: "card3",isFlipped2:false}];
-
+// imgSrc
+  $scope.cards = [{id: "card1"}, {id: "card2",imgSrc2:"/data/Emoji-facePlant.png"}, {id: "card3",imgSrc3:"/data/Emoji-Poop.png"}];
 
   $rootScope.loggedInUserDisplayName = "";
     console.log("rootScope validated");
