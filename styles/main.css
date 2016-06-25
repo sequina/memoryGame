@@ -9,14 +9,18 @@
   height: 320px;
 }
 
-.flipped{
+/*.flipped{
   background-image: url("/data/Emoji-Whatever.jpeg");
 }
 
-/*.flipped2{
+.flipped2{
   background-image: url("/data/Emoji-facePlant.png");
-}*/
+}
 
-/*.flipped3{
+.flipped3{
   background-image: url("/data/Emoji-Poop.png");
 }*/
+
+#randomPic{
+  background-image: url("/data/Emoji-Poop.png","/data/Emoji-facePlant.png","/data/Emoji-Whatever.jpeg");
+}
