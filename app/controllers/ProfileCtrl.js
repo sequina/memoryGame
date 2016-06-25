@@ -1,9 +1,21 @@
 'use strict'
-
 app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
+$rootScope.loggedInUserDisplayName = "";
+  console.log("rootScope validated");
 
-$scope.cards = [{id :"card1",isFlipped3:false},{id: "card2",isFlipped: false},{id: "card3",isFlipped2:false}];
+$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"}];
 
+$scope.image = function(card) {
+  console.log(card);
+  return
+  `background: url(${card.emojPics})`
+}
+
+
+
+
+
+// Shuffle Stuff
 $scope.newGame = function(cards) {
     console.log("function shuffle");
 
@@ -21,43 +33,39 @@ $scope.newGame = function(cards) {
   return cards
 };
 
-$scope.images = function() {
-  var emojPics = ["/data/Emoji-Poop.png","/data/Emoji-facePlant.png","/data/Emoji-Whatever.jpeg"]
-}
 
-$rootScope.loggedInUserDisplayName = "";
-  console.log("rootScope validated");
 
-//ng-show and hide for matches
 
-$scope.counter=30;
-let mytimeout = null;
 
-$scope.onTimeout = function(){
-  if($scope.counter== 0){
-    $scope.$broadcast('timer-stopped',0)
-    $timeout.cancel(mytimeout);
-    return;
-  }
-  $scope.counter--;
+// TIMER STUFF
+// $scope.counter=30;
+// let mytimeout = null;
 
-  myTime = $timeout($scope.onTimeout,1000)
-};
+// $scope.onTimeout = function(){
+//   if($scope.counter== 0){
+//     $scope.$broadcast('timer-stopped',0)
+//     $timeout.cancel(mytimeout);
+//     return;
+//   }
+//   $scope.counter--;
 
-  let myTime = $timeout($scope.onTimeout,1000)
-  $scope.stop = function() {
-    $timeout.cancel(myTime);
-  };
-  $scope.$on('timer-stopped', function(event,remaining) {
-    if (remaining === 0) {console.log("You've ran out of time!")
-    }
-  })
+//   myTime = $timeout($scope.onTimeout,1000)
+// };
 
-$scope.start = function(){
-  stop=$timeout(function() {
-    console.log($scope.counter);
-  });
-};
+//   let myTime = $timeout($scope.onTimeout,1000)
+//   $scope.stop = function() {
+//     $timeout.cancel(myTime);
+//   };
+//   $scope.$on('timer-stopped', function(event,remaining) {
+//     if (remaining === 0) {console.log("You've ran out of time!")
+//     }
+//   })
+
+// $scope.start = function(){
+//   stop=$timeout(function() {
+//     console.log($scope.counter);
+//   });
+// };
 
 
 

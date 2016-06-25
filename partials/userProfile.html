@@ -1,21 +1,23 @@
 <h1>Welcome, {{username}}</h1>
 
 <button ng-click="newGame()">New Game</button>
+  <p ng-bind="counter"></p>
+    <!-- <button ng-click="start()">Start</button> -->
+    <button ng-click="stop()">Stop</button>
+    <button ng-click="addGame()">Save Game</button>
 
-<div id = "randomPic" class="container">
-    <div id="{{card.id}}" class="col-xs-6 col-md-4 card-container" ng-repeat="card in cards" ng-click="card.isFlipped=!card.isFlipped">
+<div class="container">
+    <div id = "cardTable" class="col-xs-12 card-container">
 
-      <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div>
+      <div class="col-xs-4 card {{card.id}}" ng-repeat="card in cards" ng-style="image(card)" ng-class="{'flipped':card.isFlipped}" ng-click="card.isFlipped=!card.isFlipped"></div>
 
-      <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped2}"></div>
 
-      <div class="col-xs-12 card" ng-class="{'flipped3':card.isFlipped3}"></div>
+      <!-- <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div>
+
+      <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div> -->
 
   </div>
 
 
 </div>
 
-  <p ng-bind="counter"></p>
-    <button ng-click="start()">Start</button>
-    <button ng-click="stop()">Stop</button>

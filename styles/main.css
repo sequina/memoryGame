@@ -21,6 +21,3 @@
   background-image: url("/data/Emoji-Poop.png");
 }*/
 
-#randomPic{
-  background-image: url("/data/Emoji-Poop.png","/data/Emoji-facePlant.png","/data/Emoji-Whatever.jpeg");
-}

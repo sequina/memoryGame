@@ -1,0 +1,16 @@
+{
+  "games" : {
+      "game0" : {
+          "timeLeft": "23",
+          "matches": "3"
+        },
+      "game1" : {
+          "timeLeft": "5",
+          "matches": "0"
+        },
+      "game2" : {
+          "timeLeft": "10",
+          "matches": "2"
+      }
+    }
+  }
