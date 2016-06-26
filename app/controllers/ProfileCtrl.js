@@ -1,21 +1,22 @@
 'use strict'
-app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
+app.controller("ProfileCtrl", function($scope, $rootScope, $index, $location,$timeout,firebaseURL){
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
-$scope.flipCard = (index) function() {
+
+$scope.flipCard = function($index, card) {
   if (!$scope.cards[index].isFlipped) {
     console.log("$scope.cards['index']", $scope.cards[index]);
     $scope.cards[index].isFlipped=!$scope.cards[index].isFlipped;
   };
 };
 
-$scope.cards = [{id :"card1",isFlipped:false, emojPics:"./data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"./data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "./data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"./data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"./data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "./data/Emoji-Whatever.jpeg"}];
+$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
 $scope.image = function(card) {
   console.log(card);
   return
   `background: url(${card.emojPics})`
-}
+};
 
 
 // Shuffle Stuff
@@ -71,6 +72,13 @@ $scope.image = function(card) {
 // };
 
 
+//Game logic
+
+if (cards.id === cards.id) {
+  return console.log("Matched!");
+} else {
+  //flip cards back over
+}
 
 
 
