@@ -2,8 +2,14 @@
 app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
+$scope.flipCard = (index) function() {
+  if (!$scope.cards[index].isFlipped) {
+    console.log("$scope.cards['index']", $scope.cards[index]);
+    $scope.cards[index].isFlipped=!$scope.cards[index].isFlipped;
+  };
+};
 
-$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"}];
+$scope.cards = [{id :"card1",isFlipped:false, emojPics:"./data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"./data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "./data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"./data/Emoji-Poop.png"},{id: "card2",isFlipped: true, emojPics:"./data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "./data/Emoji-Whatever.jpeg"}];
 
 $scope.image = function(card) {
   console.log(card);
@@ -12,26 +18,23 @@ $scope.image = function(card) {
 }
 
 
-
-
-
 // Shuffle Stuff
-$scope.newGame = function(cards) {
-    console.log("function shuffle");
+// $scope.newGame = function(cards) {
+//     console.log("function shuffle");
 
-    let counter = $scope.cards.length;
-       while (counter > 0){
-        let index = Math.floor(Math.random()* counter);
-      counter--;
-        let temp = $scope.cards[counter];
-        console.log("temp",temp);
-        $scope.cards[counter] = $scope.cards[index];
-        console.log("new game shuffle");
-        $scope.cards[index] = temp;
-        console.log("$scope.cards",$scope.cards);
-  };
-  return cards
-};
+//     let counter = $scope.cards.length;
+//        while (counter > 0){
+//         let index = Math.floor(Math.random()* counter);
+//       counter--;
+//         let temp = $scope.cards[counter];
+//         console.log("temp",temp);
+//         $scope.cards[counter] = $scope.cards[index];
+//         console.log("new game shuffle");
+//         $scope.cards[index] = temp;
+//         console.log("$scope.cards",$scope.cards);
+//   };
+//   return cards
+// };
 
 
 
