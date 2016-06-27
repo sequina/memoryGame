@@ -11,6 +11,15 @@ let isAuth = (authFactory) => new Promise((resolve, reject) => {
   }
 })
 
+app.factory('game', function() {
+  let imgName = ['Emoji-facePlant', 'Emoji-Poop', 'Emoji-CryLaugh'];
+  return new Game(imgName);
+});
+
+app.controller('ProfileCtrl', function ProfileCtrl($scope, game) {
+  $scope.game = game;
+});
+
 
 app.config(function($routeProvider) {
   $routeProvider.
