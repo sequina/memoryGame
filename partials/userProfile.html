@@ -7,20 +7,14 @@
     <button ng-click="addGame()">Save Game</button>
 
 <div class="container">
-  <div id = "cardTable" class="col-xs-12 card-container">
+    <div id = "cardTable" class="col-xs-12 card-container">
 
-    <div class="col-xs-4 card {{card.id}}" ng-repeat="card in cards" ng-class="{flipped: card.isFlipped}">
-        <img class="{{card}}" ng-class="{flipped: card.isFlipped}">
-        <img class="back" ng-src="data/{{card.title}}.png">
-    </div>
-  </div>
-</div>
+      <div class="col-xs-4 card {{card.id}}" ng-repeat="card in cards" ng-style="image(card)" ng-class="{'flipped':card.isFlipped}" ng-click="flipCard(card)">
 
-<div class="message">{{game.message}}</div>
-
-
+        <img src="{{card.emojPics}}" ng-show="card.isFlipped">
+      </div>
 
       <!-- <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div>
-
       <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div> -->
 
+</div>

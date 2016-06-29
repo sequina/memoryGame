@@ -1,10 +1,57 @@
 'use strict'
-app.controller("ProfileCtrl", function($scope, $rootScope, $index, $location,$timeout,firebaseURL){
+app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
+
+let matches = [];
+let moves = 0;
 
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
+//need reset function
 
-$scope.cards = [{id :"card1"},{id: "card2"},{id: "card3"},{id :"card1"},{id: "card2"},{id: "card3"}];
+function checkRound() {
+  moves += 1
+    if(moves === 0)
+    console.log("Too many clicks");
+};
+
+function setIsFlipped(card) {
+  if (card.isFlipped === false) {
+    return card.isFlipped === true
+  };
+};
+
+function storeCard(card) {
+  if (card.isFlipped === true) {
+    return card
+    }else{
+  }
+}
+
+function compareCards(matches) {
+  if (matches === matches) {
+    return console.log("You got a match!");
+  }else{
+    return card.isFlipped === false
+  console.log("Sorry try again");
+  };
+};
+
+$scope.flipCard = function(card) {
+  checkRound();
+  setIsFlipped(card);
+  storeCard(card);
+  compareCards(matches);
+  console.log("card", card);
+  };
+
+
+$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
+
+$scope.image = function(card) {
+  console.log(card);
+  return
+  `background: url(${card.emojPics})`
+};
 
 // Shuffle Stuff
 // $scope.newGame = function(cards) {
@@ -56,35 +103,11 @@ $scope.cards = [{id :"card1"},{id: "card2"},{id: "card3"},{id :"card1"},{id: "ca
 
 
 //Game logic
-
-$scope.flipCard = function($index, card) {
-  if (!$scope.cards[index].isFlipped) {
-    console.log("$scope.cards['index']", $scope.cards[index]);
-    $scope.cards[index].isFlipped=!$scope.cards[index].isFlipped;
-  };
-};
-
-function card(title) {
-  $scope.title = title;
-  $scope.isFlipped = false;
-}
-
-// card.prototype.flip = function() {
-
-// }
-
 $scope.flipCard = function(card) {
   if (card.flipped) {
     return;
   }
   card.isFlipped();
-
-// $scope.gameLogic = function() {
-
-//     if ($scope.cards.id === $scope.cards.id) {
-//       return console.log("Matched!");
-//       }else{
-//     }
 
     if (!$scope.firstPick || $scope.secondPick) {
       if ($scope.secondpick) {
@@ -113,12 +136,9 @@ Game.MessageOneMore = 'Pick one more card.'
 Game.MessageMissed = 'Oops! Try again.';
 Game.MessageMatch = 'Nice! Keep going.';
 Game.MessageWon= 'You Win!';
-
-
-
     }
   }
-)};
+);
 
 
 
