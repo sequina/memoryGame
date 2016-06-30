@@ -3,6 +3,7 @@ app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,fi
 
 let matches = [];
 let moves = 0;
+$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
@@ -13,10 +14,12 @@ function checkRound() {
     console.log("Too many clicks");
 };
 
+// console.log("card", card);
 function setIsFlipped(card) {
-  if (card.isFlipped === false) {
-  return card.isFlipped === true
-    matches.push(card1,card2,card3);
+  matches.push(card);
+  console.log("card", card);
+    if (card.isFlipped === false) {
+      return card.isFlipped === true
   };
 };
     console.log("matches array",matches);
@@ -27,7 +30,7 @@ function storeCard(card) {
     }else{
   }
 }
-
+//card not defined error
 function compareCards(matches) {
   return
     if (matches === matches) {
@@ -48,10 +51,8 @@ $scope.flipCard = function(card) {
   setIsFlipped(card);
   storeCard(card);
   compareCards(matches);
-  console.log("card", card);
   };
 
-$scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
 $scope.image = function(card) {
   console.log(card);
