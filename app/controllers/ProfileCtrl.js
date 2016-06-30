@@ -15,9 +15,11 @@ function checkRound() {
 
 function setIsFlipped(card) {
   if (card.isFlipped === false) {
-    return card.isFlipped === true
+  return card.isFlipped === true
+    matches.push(card1,card2,card3);
   };
 };
+    console.log("matches array",matches);
 
 function storeCard(card) {
   if (card.isFlipped === true) {
@@ -27,7 +29,7 @@ function storeCard(card) {
 }
 
 function compareCards(matches) {
-  return console.log("matches",matches);
+  return
     if (matches === matches) {
   }else{
     return console.log("Sorry try again");
