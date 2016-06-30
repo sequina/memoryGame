@@ -2,11 +2,11 @@
 app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
 
 let matches = [];
+console.log("matches", matches);
 let moves = 0;
 
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
-//need reset function
 
 function checkRound() {
   moves += 1
@@ -28,13 +28,18 @@ function storeCard(card) {
 }
 
 function compareCards(matches) {
-  if (matches === matches) {
-    return console.log("You got a match!");
-  }else{
-    return card.isFlipped === false
-  console.log("Sorry try again");
-  };
+  // if (matches === matches) {
+    return console.log("matches",matches);
+//   }else{
+//     return console.log("Sorry try again");
+//   };
 };
+
+// function flipBack(card) {
+//   if (matches !== matches) {
+//     return card.isFlipped === false
+//   }
+// }
 
 $scope.flipCard = function(card) {
   checkRound();
