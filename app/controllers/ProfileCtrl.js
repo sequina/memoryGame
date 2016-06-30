@@ -2,7 +2,6 @@
 app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
 
 let matches = [];
-console.log("matches", matches);
 let moves = 0;
 
 $rootScope.loggedInUserDisplayName = "";
@@ -28,18 +27,19 @@ function storeCard(card) {
 }
 
 function compareCards(matches) {
-  // if (matches === matches) {
-    return console.log("matches",matches);
-//   }else{
-//     return console.log("Sorry try again");
-//   };
+  return console.log("matches",matches);
+    if (matches === matches) {
+  }else{
+    return console.log("Sorry try again");
+  };
 };
 
-// function flipBack(card) {
-//   if (matches !== matches) {
-//     return card.isFlipped === false
-//   }
-// }
+function flipBack(card) {
+  if (matches !== matches) {
+    console.log("matches []", matches);
+    return card.isFlipped === false
+  }
+}
 
 $scope.flipCard = function(card) {
   checkRound();
@@ -48,7 +48,6 @@ $scope.flipCard = function(card) {
   compareCards(matches);
   console.log("card", card);
   };
-
 
 $scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
@@ -108,40 +107,40 @@ $scope.image = function(card) {
 
 
 //Game logic
-$scope.flipCard = function(card) {
-  if (card.flipped) {
-    return;
-  }
-  card.isFlipped();
+// $scope.flipCard = function(card) {
+//   if (card.flipped) {
+//     return;
+//   }
+//   card.isFlipped();
 
-    if (!$scope.firstPick || $scope.secondPick) {
-      if ($scope.secondpick) {
-        $scope.firstPick.isFlipped();
-        $scope.secondPick.isFlipped();
-        $scope.firstPick = $scope.secondpick = undefined;
-      }
-      $scope.firstPick = card;
-      $scope.message = Game.MessageOneMore;
+//     if (!$scope.firstPick || $scope.secondPick) {
+//       if ($scope.secondpick) {
+//         $scope.firstPick.isFlipped();
+//         $scope.secondPick.isFlipped();
+//         $scope.firstPick = $scope.secondpick = undefined;
+//       }
+//       $scope.firstPick = card;
+//       $scope.message = Game.MessageOneMore;
 
-    } else {
+//     } else {
 
-      if ($scope.firstPick.title === card.title) {
-        $scope.unmatchedPairs--;
-        $scope.message = ($scope.unmatchedPairs > 0) ?
-          Game.MessageMatch :
-          Game.MessageWon;
-        $scope.firstPick = $scope.secondPick = undefined;
-      }else{
-        $scope.secondPick = card;
-        $scope.message = Game.MessageMissed;
-       }
-      }
-Game.MessageClick = 'Click on a card.';
-Game.MessageOneMore = 'Pick one more card.'
-Game.MessageMissed = 'Oops! Try again.';
-Game.MessageMatch = 'Nice! Keep going.';
-Game.MessageWon= 'You Win!';
-    }
+//       if ($scope.firstPick.title === card.title) {
+//         $scope.unmatchedPairs--;
+//         $scope.message = ($scope.unmatchedPairs > 0) ?
+//           Game.MessageMatch :
+//           Game.MessageWon;
+//         $scope.firstPick = $scope.secondPick = undefined;
+//       }else{
+//         $scope.secondPick = card;
+//         $scope.message = Game.MessageMissed;
+//        }
+//       }
+// Game.MessageClick = 'Click on a card.';
+// Game.MessageOneMore = 'Pick one more card.'
+// Game.MessageMissed = 'Oops! Try again.';
+// Game.MessageMatch = 'Nice! Keep going.';
+// Game.MessageWon= 'You Win!';
+    // }
   }
 );
 

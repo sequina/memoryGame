@@ -11,7 +11,7 @@
 
       <div class="col-xs-4 card {{card.id}}" ng-repeat="card in cards" ng-style="image(card)" ng-class="{'flipped':card.isFlipped}" ng-click="flipCard(card)">
 
-        <img src="{{card.emojPics}}" ng-show="card.isFlipped">
+        <img ng-src="{{card.emojPics}}" ng-show="card.isFlipped">
       </div>
 
       <!-- <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div>
