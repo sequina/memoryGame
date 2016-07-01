@@ -26,10 +26,11 @@ function setIsFlipped(card) {
 
 function storeCard(card) {
   if (card.isFlipped === true) {
+    console.log("card",card);
     return card
-    }else{
+    }
   }
-}
+
 
 function compareCards(matches) {
   return
@@ -40,7 +41,7 @@ function compareCards(matches) {
 };
 
 function flipBack(card) {
-  if (matches !== matches) {
+  if (matches.id !== matches.id) {
     console.log("matches []", matches);
     return card.isFlipped === false
   }
