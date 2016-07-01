@@ -17,12 +17,12 @@ function checkRound() {
 // console.log("card", card);
 function setIsFlipped(card) {
   matches.push(card);
-  console.log("card", card);
+  console.log("matches",matches);
     if (card.isFlipped === false) {
       return card.isFlipped === true
   };
 };
-    console.log("matches array",matches);
+
 
 function storeCard(card) {
   if (card.isFlipped === true) {
@@ -30,10 +30,10 @@ function storeCard(card) {
     }else{
   }
 }
-//card not defined error
+
 function compareCards(matches) {
   return
-    if (matches === matches) {
+    if (matches.id === matches.id) {
   }else{
     return console.log("Sorry try again");
   };
