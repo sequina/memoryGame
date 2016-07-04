@@ -1,10 +1,13 @@
+'use strict'
 app.factory("gameStorage", function($q, $http, firebaseURL, authFactory){
 
 var getGameList = function(){
-    var games = [];
-    let user = authFactory.getUser();
+        let games = [];
+        let ref = new Firebase(firebaseURL);
+        let authData = ref.getAuth();
+        let user = authFactory.getUser();
     return $q(function(resolve, reject){
-      $http.get(`${firebaseURL}games.json?orderBy="uid"&equalTo= "${user.uid}"`)
+      $http.get(`${firebaseURL}games.json?orderBy="uid"&equalTo= "${authData.google.uid}"`)
         .success(function(gameObject){
           var gameCollection = gameObject;
           Object.keys(gameCollection).forEach(function(key){

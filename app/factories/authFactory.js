@@ -40,7 +40,7 @@ app.factory("authFactory", function(firebaseURL,$rootScope) {
   //Store each Firebase user's id in the `users` collection
 
     storeUser (authData) {
-      let stringifiedUser = JSON.stringify({ uid: authData.uid });
+      let stringifiedUser = JSON.stringify({ uid: authData.google.uid });
 
       return new Promise((resolve, reject) => {
         $http
