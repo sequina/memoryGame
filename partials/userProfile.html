@@ -1,15 +1,16 @@
 <h1>Welcome, {{username}}</h1>
 
-<button ng-click="newGame()">New Game</button>
+<button class="btn btn-primary" ng-click="newGame()">New Game</button>
   <p ng-bind="counter"></p>
     <!-- <button ng-click="start()">Start</button> -->
-    <button ng-click="stop()">Stop</button>
-    <button ng-click="addGame()">Save Game</button>
+    <button class="btn btn-danger" ng-click="stop()">Stop</button>
+    <button class="btn btn-primary" ng-click="addGame()">Save Game</button>
 
 <div class="container">
     <div id = "cardTable" class="col-xs-12 card-container">
 
-      <div class="col-xs-4 card {{card.id}}" ng-repeat="card in cards" ng-class="{'isflipped':card.isFlipped}" ng-click="flipCard(card)">
+      <div class="col-xs-4 card {{card.id}}"
+      ng-class="{'isflipped':card.isFlipped}" ng-repeat="card in cards" ng-click="flipCard(card)">
 
         <img ng-src="{{card.emojPics}}" ng-show="card.isFlipped">
       </div>

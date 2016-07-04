@@ -1,17 +1,19 @@
-app.controller("DashboardCtrl", function ($scope, $location, gameStorage)
-  {
-  $scope.newGame = {
-    timeLeft: "",
-    matches: "",
-    uid: ""
-  };
+app.controller("DashboardCtrl", function ($scope, $location, gameStorage){
 
-  $scope.addGame = function() {
-    console.log("you clicked add new game button");
-    gameStorage.postNewGame($scope.newGame)
-    .then(function successCallback(response) {
-        console.log(response);
-        $location.url("/dashboard");
-    }
-  )};
+$scope.games = [];
+    gameStorage.getGameList().then(function(gameCollection) {
+      console.log("gameCollection from promise", gameCollection);
+      $scope.games = gameCollection;
+    });
+
+$scope.deleteGame = function(gameId){
+  console.log("gameId",gameId);
+  gameStorage.deleteGame(gameId).then(
+    function(response) {
+      gameStorage.getGameList().then(
+        function(gameCollection) {
+          $scope.games = gameCollection;
+        })
+    })
+  }
 });

@@ -3,6 +3,7 @@ app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,fi
 
 let matches = [];
 let moves = 0;
+
 $scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
 $rootScope.loggedInUserDisplayName = "";
@@ -10,7 +11,7 @@ $rootScope.loggedInUserDisplayName = "";
 
 function checkRound() {
   moves += 1
-    if(moves === 0)
+    if(moves == 0)
     console.log("Too many clicks");
 };
 
@@ -18,19 +19,17 @@ function checkRound() {
 function setIsFlipped(card) {
   matches.push(card);
   console.log("matches",matches);
-    if (card.isFlipped === false) {
-      return card.isFlipped === true
+    if (card.isFlipped == false) {
+      return card.isFlipped = true
   };
 };
 
-
 function storeCard(card) {
-  if (card.isFlipped === true) {
     console.log("card",card);
+  if (card.isFlipped == true) {
     return card
     }
   }
-
 
 function compareCards(matches) {
   return
@@ -43,7 +42,7 @@ function compareCards(matches) {
 function flipBack(card) {
   if (matches.id !== matches.id) {
     console.log("matches []", matches);
-    return card.isFlipped === false
+    return card.isFlipped == false
   }
 }
 
@@ -80,34 +79,34 @@ $scope.image = function(card) {
 // };
 
 // TIMER STUFF
-// $scope.counter=30;
-// let mytimeout = null;
+$scope.counter=30;
+let mytimeout = null;
 
-// $scope.onTimeout = function(){
-//   if($scope.counter== 0){
-//     $scope.$broadcast('timer-stopped',0)
-//     $timeout.cancel(mytimeout);
-//     return;
-//   }
-//   $scope.counter--;
+$scope.onTimeout = function(){
+  if($scope.counter== 0){
+    $scope.$broadcast('timer-stopped',0)
+    $timeout.cancel(mytimeout);
+    return;
+  }
+  $scope.counter--;
 
-//   myTime = $timeout($scope.onTimeout,1000)
-// };
+  myTime = $timeout($scope.onTimeout,1000)
+};
 
-//   let myTime = $timeout($scope.onTimeout,1000)
-//   $scope.stop = function() {
-//     $timeout.cancel(myTime);
-//   };
-//   $scope.$on('timer-stopped', function(event,remaining) {
-//     if (remaining === 0) {console.log("You've ran out of time!")
-//     }
-//   })
+  let myTime = $timeout($scope.onTimeout,1000)
+  $scope.stop = function() {
+    $timeout.cancel(myTime);
+  };
+  $scope.$on('timer-stopped', function(event,remaining) {
+    if (remaining === 0) {console.log("You've ran out of time!")
+    }
+  })
 
-// $scope.start = function(){
-//   stop=$timeout(function() {
-//     console.log($scope.counter);
-//   });
-// };
+$scope.start = function(){
+  stop=$timeout(function() {
+    console.log($scope.counter);
+  });
+};
 
 
 //Game logic

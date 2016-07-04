@@ -28,7 +28,7 @@ app.config(function($routeProvider) {
     controller:"ProfileCtrl",
     resolve: {isAuth},
   }).
-  when('/myGames',{
+  when('/dashboard',{
     templateUrl:'partials/dashboard.html',
     controller:"DashboardCtrl",
     resolve: {isAuth}
