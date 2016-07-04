@@ -43,11 +43,13 @@ var getGameList = function(){
 
     var postNewGame = function(newGame){
         let user = authFactory.getUser();
+        let ref = new Firebase(firebaseURL);
+        let authData = ref.getAuth();
             return $q(function(resolve, reject) {
                 $http.post(
                 firebaseURL + "games.json",
                 JSON.stringify({
-                    uid: user.uid,
+                    uid: authData.google.uid,
                     timeLeft: newGame.timeLeft,
                     matches: newGame.matches
                     })

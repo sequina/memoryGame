@@ -1,5 +1,5 @@
 'use strict'
-app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL){
+app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,firebaseURL, gameStorage){
 
 let matches = [];
 let moves = 0;
@@ -59,6 +59,24 @@ $scope.image = function(card) {
   return
   `background: url(${card.emojPics})`
 };
+
+//saving games to Dashboard
+$scope.saveButtonText = "Add New Game"
+  $scope.newGame = {
+    timeLeft: "",
+    matches: "",
+    uid: ""
+  };
+$scope.addGame = function() {
+    console.log("you clicked add new game button");
+    gameStorage.postNewGame($scope.newGame)
+    .then(function successCallback(response) {
+        console.log(response);
+        $location.url("#/dashboard");
+    });
+  };
+
+
 
 // Shuffle Stuff
 // $scope.newGame = function(cards) {
