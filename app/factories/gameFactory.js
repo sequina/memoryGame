@@ -7,12 +7,13 @@ var getGameList = function(){
         let authData = ref.getAuth();
         let user = authFactory.getUser();
     return $q(function(resolve, reject){
-      $http.get(`${firebaseURL}games.json?orderBy="uid"&equalTo= "${authData.google.uid}"`)
+      $http.get(`${firebaseURL}games.json?orderBy="uid"&equalTo= "${authData.uid}"`)
         .success(function(gameObject){
           var gameCollection = gameObject;
           Object.keys(gameCollection).forEach(function(key){
             gameCollection[key].id=key;
             games.push(gameCollection[key]);
+            console.log("gameCollection",gameCollection);
               });
             resolve(games);
               })

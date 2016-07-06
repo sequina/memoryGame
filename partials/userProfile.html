@@ -21,7 +21,7 @@
 
     <div id = "cardTable" class="col-xs-12 card-container">
 
-      <div class = "col-xs-4 card" ng-class="{'isflipped':card.isFlipped}" ng-repeat="card in cards" ng-click="flipCard(card)">
+      <div class = "col-xs-4 card" ng-hide="{'isflipped':card.isFlipped}" ng-repeat="card in cards" ng-click="flipCard(card)">
 
         <img ng-src="{{card.emojPics}}" ng-show="card.isFlipped">
       </div>

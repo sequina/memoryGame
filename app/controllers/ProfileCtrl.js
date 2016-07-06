@@ -31,9 +31,12 @@ function setIsFlipped(card) {
 
 function compareCards(matches) {
     if (matches.id == matches.id) {
-
+      matches.animate({
+        opacity:0
+      },500,done);
       console.log("matches",matches);
   }else{
+    done();
     return console.log("Sorry try again");
   };
 };
@@ -62,10 +65,11 @@ $scope.image = function(card) {
 //saving games to Dashboard
 $scope.saveButtonText = "Add New Game"
   $scope.newGame = {
-    timeLeft:'{{$scope.counter}}',
+    timeLeft:"",
     matches: "",
     uid: ""
   };
+
 $scope.addGame = function() {
     console.log("you clicked add new game button");
     gameStorage.postNewGame($scope.newGame)
