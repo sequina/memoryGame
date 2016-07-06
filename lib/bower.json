@@ -1,0 +1,21 @@
+{
+  "name": "lib",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "sequina <sccaro89@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sequina/memoryGame",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-vs-repeat": "^1.1.7",
+    "jquery": "^3.0.0"
+  }
+}

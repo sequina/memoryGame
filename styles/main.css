@@ -9,15 +9,8 @@
   height: 320px;
 }
 
-/*.flipped{
-  background-image: url("/data/Emoji-Whatever.jpeg");
+.body{
+  background-image: url("/data/backgroundTheme.png");
+  height: 100%;
+  width: 100%;
 }
-
-.flipped2{
-  background-image: url("/data/Emoji-facePlant.png");
-}
-
-.flipped3{
-  background-image: url("/data/Emoji-Poop.png");
-}*/
-

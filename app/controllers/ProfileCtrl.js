@@ -15,25 +15,24 @@ function checkRound() {
     console.log("Too many clicks");
 };
 
-// console.log("card", card);
-function setIsFlipped(card) {
-  matches.push(card);
-  console.log("matches",matches);
-    if (card.isFlipped == false) {
-      return card.isFlipped = true
-  };
-};
-
 function storeCard(card) {
     console.log("card",card);
   if (card.isFlipped == true) {
     return card
     }
   }
+function setIsFlipped(card) {
+  matches.push(card);
+  // console.log("matches",matches);
+    if (card.isFlipped == false) {
+      return card.isFlipped = true
+  };
+};
 
 function compareCards(matches) {
-  return
-    if (matches.id === matches.id) {
+    if (matches.id == matches.id) {
+
+      console.log("matches",matches);
   }else{
     return console.log("Sorry try again");
   };
@@ -48,11 +47,11 @@ function flipBack(card) {
 
 $scope.flipCard = function(card) {
   checkRound();
-  setIsFlipped(card);
   storeCard(card);
+  setIsFlipped(card);
   compareCards(matches);
+  flipBack(card);
   };
-
 
 $scope.image = function(card) {
   console.log(card);
@@ -63,7 +62,7 @@ $scope.image = function(card) {
 //saving games to Dashboard
 $scope.saveButtonText = "Add New Game"
   $scope.newGame = {
-    timeLeft: "",
+    timeLeft:'{{$scope.counter}}',
     matches: "",
     uid: ""
   };
@@ -75,26 +74,6 @@ $scope.addGame = function() {
         $location.url("#/dashboard");
     });
   };
-
-
-
-// Shuffle Stuff
-// $scope.newGame = function(cards) {
-//     console.log("function shuffle");
-
-//     let counter = $scope.cards.length;
-//        while (counter > 0){
-//         let index = Math.floor(Math.random()* counter);
-//       counter--;
-//         let temp = $scope.cards[counter];
-//         console.log("temp",temp);
-//         $scope.cards[counter] = $scope.cards[index];
-//         console.log("new game shuffle");
-//         $scope.cards[index] = temp;
-//         console.log("$scope.cards",$scope.cards);
-//   };
-//   return cards
-// };
 
 // TIMER STUFF
 $scope.counter=30;
@@ -116,7 +95,7 @@ $scope.onTimeout = function(){
     $timeout.cancel(myTime);
   };
   $scope.$on('timer-stopped', function(event,remaining) {
-    if (remaining === 0) {console.log("You've ran out of time!")
+    if (remaining === 0) {console.log("Game Over!")
     }
   })
 
@@ -126,42 +105,29 @@ $scope.start = function(){
   });
 };
 
-
-//Game logic
 // $scope.flipCard = function(card) {
 //   if (card.flipped) {
 //     return;
 //   }
 //   card.isFlipped();
 
-//     if (!$scope.firstPick || $scope.secondPick) {
-//       if ($scope.secondpick) {
-//         $scope.firstPick.isFlipped();
-//         $scope.secondPick.isFlipped();
-//         $scope.firstPick = $scope.secondpick = undefined;
-//       }
-//       $scope.firstPick = card;
-//       $scope.message = Game.MessageOneMore;
+// Shuffle Stuff
+// $scope.newGame = function(cards) {
+//     console.log("function shuffle");
 
-//     } else {
-
-//       if ($scope.firstPick.title === card.title) {
-//         $scope.unmatchedPairs--;
-//         $scope.message = ($scope.unmatchedPairs > 0) ?
-//           Game.MessageMatch :
-//           Game.MessageWon;
-//         $scope.firstPick = $scope.secondPick = undefined;
-//       }else{
-//         $scope.secondPick = card;
-//         $scope.message = Game.MessageMissed;
-//        }
-//       }
-// Game.MessageClick = 'Click on a card.';
-// Game.MessageOneMore = 'Pick one more card.'
-// Game.MessageMissed = 'Oops! Try again.';
-// Game.MessageMatch = 'Nice! Keep going.';
-// Game.MessageWon= 'You Win!';
-    // }
+//     let counter = $scope.cards.length;
+//        while (counter > 0){
+//         let index = Math.floor(Math.random()* counter);
+//       counter--;
+//         let temp = $scope.cards[counter];
+//         console.log("temp",temp);
+//         $scope.cards[counter] = $scope.cards[index];
+//         console.log("new game shuffle");
+//         $scope.cards[index] = temp;
+//         console.log("$scope.cards",$scope.cards);
+//   };
+//   return cards
+// };
   }
 );
 

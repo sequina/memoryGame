@@ -45,14 +45,17 @@ var getGameList = function(){
   };
 
     var postNewGame = function(newGame){
-        let user = authFactory.getUser();
+        // let user = authFactory.authData.displayName
+        // console.log("user",user);
         let ref = new Firebase(firebaseURL);
         let authData = ref.getAuth();
+        // console.log("authData",authData);
+        console.log("uid", authData.uid);
             return $q(function(resolve, reject) {
                 $http.post(
                 firebaseURL + "games.json",
                 JSON.stringify({
-                    uid: authData.google.uid,
+                    uid: authData.uid,
                     timeLeft: newGame.timeLeft,
                     matches: newGame.matches
                     })
@@ -66,11 +69,5 @@ var getGameList = function(){
 
 
 return{postNewGame:postNewGame,getGameList:getGameList,deleteGame:deleteGame,getSingleGame:getSingleGame};
-
-
-
-
-
-
 
 });

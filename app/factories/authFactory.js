@@ -3,7 +3,7 @@
 app.factory("authFactory", function(firebaseURL,$rootScope) {
   let ref = new Firebase(firebaseURL);
   let currentUserData = null;
-
+  let isNewUser = true;
   return {
 
   //Determine if the client is authenticated through firebase
@@ -40,7 +40,7 @@ app.factory("authFactory", function(firebaseURL,$rootScope) {
   //Store each Firebase user's id in the `users` collection
 
     storeUser (authData) {
-      let stringifiedUser = JSON.stringify({ uid: authData.google.uid });
+      let stringifiedUser = JSON.stringify({ uid: authData.uid });
 
       return new Promise((resolve, reject) => {
         $http
