@@ -24,6 +24,7 @@ var getGameList = function(){
   };
 
   var getSingleGame = function(gameId) {
+    console.log("gameId",gameId);
     return $q(function(resolve, reject){
       $http.get( firebaseURL + "games/"+gameId+".json")
         .success(function(gameObject){

@@ -1,33 +1,20 @@
 <h1>Welcome, {{username}}</h1>
-<!-- <h2>Matching: {{matches.id}}</h2> -->
-
-<!-- <counter min= '0' max= '3' cell height= '32px'></counter> -->
-
+<h2>Score: {{newGame.score}}</h2>
 <button class="btn btn-primary" ng-click="newGame()">New Game</button>
+  <p ng-bind="counter"></p>
     <!-- <button ng-click="start()">Start</button> -->
-    <button class="btn btn-danger" ng-style = "{'float':left}" ng-click="stop()">Stop</button>
-
-    <button class="btn btn-primary" ng-style = "{'float':right}" ng-click="addGame()">Save Game</button>
-
+    <button class="btn btn-danger" ng-click="stop()">Stop</button>
+    <button class="btn btn-primary" ng-click="addGame()">Save Game</button>
 
 <div class="container">
-
-  <div class= "col-xs-1" ng-bind="counter" ng-style = "{'box-shadow':'inset 0 0 10px #000000', 'font-size': 'medium', 'text-align':'center'}">
-
-  </div>
-
-  <br/>
-  <br/>
-
     <div id = "cardTable" class="col-xs-12 card-container">
 
-      <div class = "col-xs-4 card" ng-hide="{'isflipped':card.isFlipped}" ng-repeat="card in cards" ng-click="flipCard(card)">
+      <div class = "col-xs-4 card" ng-repeat="card in cards" ng-click="Game(card)">
 
-        <img ng-src="{{card.emojPics}}" ng-show="card.isFlipped">
+        <img ng-src="{{card.emojPics}}" ng-hide="{'isflipped':card.isFlipped}" ng-show="card.isFlipped">
       </div>
-
+    </div>
       <!-- <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div>
       <div class="col-xs-12 card" ng-class="{'flipped':card.isFlipped}"></div> -->
 
-  </div>
 </div>

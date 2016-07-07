@@ -15,9 +15,9 @@
   <br/>
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="col-xs-2"><a ng-href="#/games/{{games.uid}}">{{newGame.uid}}</a></div>
-        <div class="col-xs-2">{{games.matches}}</div>
-        <div class="col-xs-2"><button class="btn btn-danger" ng-click= "deleteGame(games.id)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+        <div class="col-xs-2"><a ng-href="#/games/{{games.uid}}">{{newGame.timeLeft}}</a></div>
+        <div class="col-xs-2">{{newGame.matches}}</div>
+        <div class="col-xs-2"><button class="btn btn-danger" ng-click= "deleteGame(games.uid)"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
       </div>
     </div>
   </div>
