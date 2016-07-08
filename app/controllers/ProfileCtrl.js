@@ -5,16 +5,23 @@ let matches = [];
 let moves = 0;
 let score = 0;
 
-
 $scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
 
-function flip(card){
-  $('.card').toggleClass('flipped');
-  console.log("you flipped me");
-}
+// function flipCard(card){
+//   card.isflipped = false;
+//   // const flip = (card) => card.toggleClass({'isflipped':true});
+//   // console.log("card",card);
+//   // const isFlipped = (card) => card.hasClass('isflipped');
+//   console.log("you flipped me");
+// };
+
+// flipCard.prototype.flip = function(){
+//   "card.isFlipped =! card.isFlipped"
+// }
+// flipCard.flip();
 
 function checkRound() {
   moves += 1
@@ -55,8 +62,6 @@ function compareCards(matches) {
       // if (i > 2) {
       //   flipBack();
       // }
-      //matches.id does not work
-      // console.log("matches.id",matches.id);
       console.log("matches[]",matches[0].id);
       console.log("matches",matches);
   var match1 = matches[0].id
@@ -82,9 +87,8 @@ function flipBack(card) {
   }
 }
 
-
 $scope.Game = function(card) {
-  flip(card);
+  // flip(card);
   checkRound();
   setIsFlipped(card);
   flipBack(card);
