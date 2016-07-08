@@ -44,7 +44,7 @@
 #singleCard .front {
   background: red;
 }
-#singleCard .back {
+.isFlipped .back {
   /*background: blue;*/
   transform: rotateY( 180deg );
 }

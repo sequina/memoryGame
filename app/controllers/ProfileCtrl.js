@@ -10,36 +10,29 @@ $scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"}
 $rootScope.loggedInUserDisplayName = "";
   console.log("rootScope validated");
 
-// function flipCard(card){
-//   card.isflipped = false;
-//   // const flip = (card) => card.toggleClass({'isflipped':true});
-//   // console.log("card",card);
-//   // const isFlipped = (card) => card.hasClass('isflipped');
-//   console.log("you flipped me");
-// };
-
-// flipCard.prototype.flip = function(){
-//   "card.isFlipped =! card.isFlipped"
-// }
-// flipCard.flip();
-
 function checkRound() {
   moves += 1
   console.log("1.checkRound(moves)",moves);
+  isFlipped();
     if(moves > 2)
     console.log("Too many clicks");
+  };
+
+function isFlipped(){
+    console.log("cards[]",$scope.cards[0]);
+  if ($scope.cards[0].isFlipped === false) {
+    console.log("you flipped me");
+    return $scope.cards[0].isFlipped = true;
+  }
 };
 
 
-function setIsFlipped(card) {
+function pushCards(card) {
   console.log("cardObject",card);
   matches.push(card);
   console.log("2.Pushed Matches line 25",matches);
   storeCard(matches);
   console.log("2b.Stored Matches line 27",matches);
-    if (matches.isFlipped == false) {
-      return matches.isFlipped = true
-  };
 };
 
 function storeCard(matches) {
@@ -88,9 +81,8 @@ function flipBack(card) {
 }
 
 $scope.Game = function(card) {
-  // flip(card);
   checkRound();
-  setIsFlipped(card);
+  pushCards(card);
   flipBack(card);
   };
 
