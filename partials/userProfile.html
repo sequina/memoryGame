@@ -9,7 +9,7 @@
 <div class="container">
     <div id = "cardTable" class="col-xs-12 card-container">
 
-      <div class = "col-xs-4 card" ng-repeat="card in cards" ng-click="Game(card)">
+      <div class = "col-xs-4 card" ng-repeat="card in cards" ng-style = "{'isFlipped:transform: rotateY(180deg)'}" ng-click="Game(card)">
 
         <img ng-src="{{card.emojPics}}" ng-hide="{'isFlipped':card.isFlipped}" ng-show="card.isFlipped">
       </div>
