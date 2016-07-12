@@ -4,6 +4,8 @@ app.controller("ProfileCtrl", function($scope, $rootScope, $location,$timeout,fi
 let matches = [];
 let moves = 0;
 let score = 0;
+// let myPics = ['🤖','💩', '👹', '🙈', '⛄️', '🐰'];
+
 
 $scope.cards = [{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false, emojPics: "../data/Emoji-Whatever.jpeg"},{id :"card1",isFlipped:false, emojPics:"../data/Emoji-Poop.png"},{id: "card2",isFlipped: false, emojPics:"../data/Emoji-facePlant.png"},{id: "card3",isFlipped:false,emojPics: "../data/Emoji-Whatever.jpeg"}];
 
@@ -13,18 +15,21 @@ $rootScope.loggedInUserDisplayName = "";
 function checkRound() {
   moves += 1
   console.log("1.checkRound(moves)",moves);
-  isFlipped();
+  // isFlipped();
     if(moves > 2)
     console.log("Too many clicks");
   };
 
-function isFlipped(){
-    console.log("cards[]",$scope.cards[0]);
-  if ($scope.cards[0].isFlipped === false) {
-    console.log("you flipped me");
-    return $scope.cards[0].isFlipped = true;
-  }
-};
+$scope.myPics = false;
+$scope.toggle = function() {
+  console.log("toggle function");
+      $scope.myPics = !$scope.myPics;
+    };
+// function isFlipped(){
+//     console.log("cards[]",$scope.cards[0]);
+//     console.log("you flipped me");
+  // if ($scope.cards[0].isFlipped === false) {}
+    // return $scope.cards.isFlipped = true;
 
 
 function pushCards(card) {
@@ -85,6 +90,8 @@ $scope.Game = function(card) {
   pushCards(card);
   flipBack(card);
   };
+
+
 
 $scope.image = function(card) {
   console.log(card);
